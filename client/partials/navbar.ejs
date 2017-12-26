@@ -1,0 +1,68 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">Realtime</a>
+            <% if (locals.LoggedInUser != null) { %>
+                <select class="selectpicker navbar-selectpicker" data-width="fit" data-style="navbar-inverse bootstrap-select-navbar" title="Choose a collection..." data-live-search="true">
+                    <% for (var i in locals.CollectionNameList) {
+                        var collName = locals.CollectionNameList[i]; %>  
+                            <option <% if (collName.toUpperCase() == PageName.toUpperCase()) { %> selected="selected" <% } %> ><%= collName %></option>
+                    <% } %>            
+                </select>
+            <% } %>
+        </div>
+        <% if (locals.LoggedInUser != null) { %>
+            <select class="selectpicker navbar-selectpicker pull-right" data-width="fit" data-style="navbar-inverse bootstrap-select-navbar" title="<%=locals.LoggedInUser[locals.shared.UserNameProperty]%>">
+                <option>Logout</option>
+            </select>
+        <% } %>
+        <% if (locals.IsAdmin == true) { %>
+            <button type="button" class="btn btn-success pull-right" id="btnGlobalRealtimeRefresh" title="Global Refresh">
+                <i class="glyphicon glyphicon-refresh"></i>
+            </button>
+        <% } %> 
+    </div>
+</nav>
+<script>
+    $(function () {
+        //redirect the user to the page they selected from the drop down
+        $(".navbar-selectpicker").on('changed.bs.select', function (e, clickedIndex, newValue, oldValue) {
+            var selectedValue = e.currentTarget.value.replaceAll(" ", "_");
+            window.location = selectedValue;
+        });
+        <% if (locals.IsAdmin == true) { %>
+            //when an admin clicks this button, all realtime tables will be refreshed for all clients
+            $("#btnGlobalRealtimeRefresh").click(function(e) {
+                socket.emit('WS_GlobalRealtimeRefresh');
+            });
+        <% } %>
+        <% if (locals.LoggedInUser != null) { %>
+            //when a user's information is changed through the User screen, then force the page to be refreshed for that user 
+            var loggedInUserName = "<%= locals.LoggedInUser[locals.shared.UserNameProperty] %>";
+            socket.on(GetEventName('WS_UserDataChanged', loggedInUserName), function(userWhoMadeChanges, fieldsChanged) {
+                var reload = function (dialogRef) {
+                   location.reload();                        
+                };
+                if (userWhoMadeChanges == loggedInUserName) {
+                    reload();
+                }
+                else {
+                    var message = '<h2 style="margin-top: 0px;">Information Changed:</h2>';
+                    if (typeof fieldsChanged =='object') {
+                        for (var key in fieldsChanged) {
+                            message += '<h4>"' + key + '" was changed to "' + fieldsChanged[key] + '".</h4>';
+                        }
+                    }
+                    else {
+                        //fieldsChanged is actually a string
+                        message += "<h4>" +fieldsChanged + "</h4>";
+                    }
+                    ShowCountDownModal(5, userWhoMadeChanges + ' made changes to your Account, the page must be refreshed.', message, 'Reloading in {SECONDS}', reload);
+                }
+            });
+            socket.on(GetEventName('WS_UserLoggedInOrOut', loggedInUserName), function() {
+                location.reload();  
+            });
+        <% } %>
+    });
+</script>

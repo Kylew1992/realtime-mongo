@@ -1,0 +1,10 @@
+{
+    "MongoURL": "mongodb://localhost:27017/Realtime",
+    "EmailTransporter": {
+        "service": "Yahoo",
+        "auth": {
+            "user": "YourEmail@yahoo.com",
+            "pass": "YourPassword"
+        }
+    }
+}

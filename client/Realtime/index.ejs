@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html id="html">
+
+<head>
+    <% include ../partials/includes %>
+    <script>
+        var CollectionName = "<%= locals.CollectionName %>";
+        var ChangeLogURL = "<%= locals.ChangeLogInfo.ChangeLogURL %>";
+        var ChangeLogRecordID = "<%= locals.ChangeLogInfo.ChangeLogRecordID %>";    
+        var ChangeLogCollectionName = "<%= locals.ChangeLogInfo.ChangeLogCollectionName %>";                
+    </script>
+    <script src="js/RealtimeFunctions.js"></script>
+</head>
+
+<body>
+    <% if (locals.ChangeLogInfo.ChangeLogRecordID == null) { %>
+        <% include ../partials/navbar %>
+    <% } %>            
+    <div class="col-sm-12">    
+        <% if (locals.HomeMessage != null){ %>
+            <br>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"><div class="alert alert-danger"><strong><%= locals.HomeMessage %></strong></div></div>
+            <div class="col-sm-4"></div>              
+        <% } %>
+        <div class="Realtime_Table_Container">
+            <div class="Realtime_Table_Toolbar btn-group pull-right">
+                <% if (locals.ChangeLogInfo.ChangeLogURL != null) { %>
+                    <button type="button" class="btn btn-primary" id="btnAddRecord" title="Add a New Record">
+                        <i id="btnAddRecordIcon" class="glyphicon glyphicon-plus"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger" id="btnDeleteRecord" title="Deactivate Records">
+                        <i id="btnDeleteRecordIcon" class="glyphicon glyphicon-off"></i>
+                    </button>
+                    <button type="button" class="btn btn-info activerecords" id="btnToggleInactiveRecords">Show Inactive Records</button>                    
+                <% } %>                   
+            </div>
+            <table id="Realtime_Table" class="Realtime_Table"></table>
+        </div>        
+    </div>
+</body>
+</html>

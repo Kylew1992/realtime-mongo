@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html id="html">
+
+<head>
+    <% include partials/includes %>
+</head>
+
+<body>
+    <% include partials/navbar %>
+    <div class="col-sm-12">
+         <div class="col-sm-6">
+             <h1>Login</h1>
+             <form action="/Login" method="post">
+                 <div class="form-group">
+                     <input class="form-control" type="text" name="logusername" placeholder="User Name" required="">
+                 </div>
+                 <div class="form-group">
+                     <input class="form-control" type="password" name="logpassword" placeholder="Password" required="">
+                 </div>
+                 <div class="form-group">
+                    <a class="btn btn-primary" href="/ForgotPassword">Forgot Password</a>
+                    <input class="btn btn-primary pull-right" type="submit" value="Login">
+                </div>
+             </form>
+             <% if (locals.LogInErrorMessage != null){ %>
+                <div class="alert alert-danger">
+                    <strong><%= locals.LogInErrorMessage %></strong>
+                </div>
+             <% } %>
+         </div>
+    </div>
+</body>
+
+</html>

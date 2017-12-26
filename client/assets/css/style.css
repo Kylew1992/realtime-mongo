@@ -1,0 +1,210 @@
+.Realtime_TD > input {
+    height: 45px;
+    border-width:0px;
+    border:none;
+    outline: none;
+    outline-width: 0;
+}
+
+.Realtime_TD {
+    padding: 0px 0px !important;
+ }
+
+.fixed-table-container .bs-checkbox .th-inner {
+    padding: 13px 0px !important;
+}
+
+.Realtime_Table {
+    white-space: nowrap;
+}
+
+.multi-sort {
+    height: 34px;
+}
+
+.filter-show-clear {
+    height: 34px;
+}
+
+.Realtime_Table_Toolbar > button {
+    height: 34px;
+}
+
+.editable-submit {
+    height: 30px;    
+}
+
+.editable-cancel {
+    height: 30px;    
+}
+
+.editable-click, a.editable-click {
+    border-bottom: none !important;
+}
+
+.editable-unsaved {
+    font-weight: normal !important;
+}
+
+.Realtime_Table_Container {
+    height: 500px;
+}
+
+.page-list {
+    display: none !important;
+}
+
+.editable-pre-wrapped {
+    white-space: nowrap;
+}
+
+.fixed-table-container input[type=radio], .fixed-table-container input[type=checkbox] {
+    margin: 4px 0 0 !important;
+}
+
+.filter-control > select {
+    padding: 3px;
+}
+
+.filter-control > input {
+    padding: 3px;
+}
+
+#LoadingIcon {    
+    float: left; 
+    margin-top: 3px;   
+}
+
+#SearchTimer {    
+    float: left; 
+    margin-right: 10px;   
+}
+
+.truncate {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.editable-input > textarea {
+    width: 500px !important;
+    height: 150px;
+    resize: none;
+}
+
+.filter-control {
+    margin-left: 3px;
+    margin-right: 3px;
+    font-weight: normal;
+}
+
+.editable-input {
+    white-space: inherit;
+}
+
+.pagination-detail {
+    margin-left: 10px;
+}
+
+.ChangeLogDialog > .modal-dialog > .modal-content > .modal-body {
+    padding: 0px;
+}
+
+.ChangeLogDialog > .modal-dialog {
+    width: 95%;
+}
+
+.bootstrapDialogNoHeader > .modal-dialog > .modal-content > .modal-header {
+    display: none;
+}
+
+.truncate-clickable {
+    cursor: pointer;
+    color: #337ab7;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.bootstrap-select-navbar {
+    height : 34px;
+    border: none;
+}
+
+.bootstrap-select > .dropdown-toggle {
+    color: #fff;
+}
+
+.navbar, .nav, .navbar-header, .navbar-brand {
+    max-height: 34px;
+    min-height: 0px;
+}
+
+.navbar-brand {
+    padding: 7px 20px;
+    color: #fff !important;
+}
+
+.navbar-header {
+    float: left;
+}
+
+element.style {
+    max-height: 430px;
+    overflow-y: auto;
+    min-height: 0px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu.open {
+    max-height: 400px !important;    
+}
+
+.bootstrap-select.btn-group .dropdown-menu.inner {
+    max-height: 300px !important;
+}
+
+.filter-control-selectpicker {
+    background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+    border: 1px solid #ccc;
+}
+
+.filter-control-selectpicker > .dropdown-toggle,
+.filter-control-selectpicker > .filter-option,
+.filter-control-selectpicker > .bs-caret {
+    color: #000;
+}
+
+.filter-control-searchmode {
+    margin-bottom: 10px !important;
+}
+
+.column-filter-link {
+    font-size: 30px;
+}
+
+.column-filter-link > span {
+    margin-top: 10px;
+}
+
+.fixed-table-container thead th .th-inner, 
+.fixed-table-container tbody td .th-inner {
+    padding: 0px 30px 0px 0px;
+    line-height: inherit;
+}
+
+.no-highlight {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */      
+  }
+
+  .fixed-table-container .no-records-found {
+    text-align: left;
+}
+
+.jsonIcon{
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "realtime-mongo",
+  "version": "1.0.1",
+  "scripts": {
+    "start": "node server/app.js"
+  },
+  "author": "kyle wertz wertz.kyle@yahoo.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest",
+    "mongodb": "^2.2.33",
+    "socket.io": "latest",
+    "bcrypt": "latest",
+    "nodemailer": "latest",
+    "express-session": "latest",
+    "connect-mongo": "latest",
+    "ejs": "latest"
+  }
+}
