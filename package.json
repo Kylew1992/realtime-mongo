@@ -6,6 +6,10 @@
   },
   "author": "kyle wertz wertz.kyle@yahoo.com",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kylew1992/realtime-mongo.git"
+  },
   "dependencies": {
     "express": "latest",
     "mongodb": "^2.2.33",
